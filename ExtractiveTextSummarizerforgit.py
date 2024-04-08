@@ -172,13 +172,6 @@ sent_tokens01 = tokenize_text_sent_v2(in_text_words_01)
 sent_tokens01
 
 
-
-
-
-
-
-
-
 # Lemmatization
 
 wnl = WordNetLemmatizer()
