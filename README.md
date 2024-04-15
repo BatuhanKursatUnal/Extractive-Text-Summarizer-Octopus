@@ -1,3 +1,5 @@
+https://img.shields.io/badge/dependencies-NLTK-brightgreen?style=plastic&color=rgba
+
 This is an automatic extractive text summarization algorithm.
 
 The working principle of extractive text summarization idea is that the model generates summaries using only the words that are already contained in the original text. Compared to the abstractive text summarization algorithms, these are easier to implement, do not necessarily require network training, but are less accurate and useful.
