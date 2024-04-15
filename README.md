@@ -6,7 +6,7 @@ The working principle of extractive text summarization idea is that the model ge
 
 Extractive document summarization algorithms rank the pre-processed sentences in the original text depending on some selected features and produce a summary using solely these ranked sentences. 
 
-The project outline is as follows:
+********The project outline is as follows:********
 The main dependencies are; NLTK, which is used mainly by taking advantage of tokenizers and lemmatizers in pre-processing step, and scikitlearn, which is useful in feature extraction.
 
 Brown and Reuters corpora are used via NLTK library. Brown corpus is the main set that the model uses to generate summaries and Reuters corpus is used only for trial purposes.
