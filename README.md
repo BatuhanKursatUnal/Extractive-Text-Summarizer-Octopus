@@ -1,9 +1,9 @@
-[![Dependencies](https://img.shields.io/badge/Dependencies-NLTK%2C%20scikit--learn%2C%20pandas-blue)](https://pypi.org/)
-https://img.shields.io/badge/code-Python-red?style=flat-square
-https://img.shields.io/badge/dependencies-NLTK-blue
-https://img.shields.io/badge/dependencies-scikitlearn-darkblue?style=plastic
-https://img.shields.io/badge/dependencies-pandas-lightblue?style=plastic
-https://img.shields.io/badge/dependencies-networx-white?style=plastic
+
+[![Code]https://(img.shields.io/badge/code-Python-red?style=flat-square)](https://pypi.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-NLTK-blue)](https://pypi.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-scikitlearn-darkblue?style=plastic)](https://pypi.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-pandas-lightblue?style=plastic)](https://pypi.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-networx-white?style=plastic)](https://pypi.org/)
 
 
 
