@@ -36,7 +36,6 @@ raw_brown_news = brown.raw(categories = 'news')
 
 # Pre-processing of the Data
 
-
 # Special character and punctuation removal
 # I create a set of punctuations to be removed specially, because I want to keep words like "I'll" intact.
 my_punctuation = string.punctuation.replace("'", "") + "``" + "''" + "--"
@@ -66,9 +65,6 @@ def special_ch_punc_removal_sent(ch_punc_in):
     return ch_punc_out
 
 
-
-
-
 # For tokenized words
 
 def special_ch_punc_removal(clean_tokens):
@@ -76,6 +72,7 @@ def special_ch_punc_removal(clean_tokens):
     clean_tokens = [token for token in clean_tokens if token not in my_punctuation]
     
     return clean_tokens
+
 
 
 # Case conversion
@@ -145,34 +142,30 @@ def tokenize_text(ch_text):
 
     return clean_tokens
 
-    
-# Sentence Tokenization
-# Another Way of Tokenizing Sentences
 
-def tokenize_text_sent_v2(in_text_words):
+# Sentence Tokenization
+
+def tokenize_text_sent(clean_tokens):
     '''
     Parameters
     ----------
-    in_text_words : Input must be employing the attribute .words() of NLTK library
+    clean_tokens : Word tokens that are free of POS-tags
 
     Returns
     -------
-    sent_tokens12 : Tokenized sentences
+    sent_tokens11 : Tokenized sentences
     
     '''
-    
 
-    sent_tokens12 = sent_tokenize(in_text_words, language= 'english')
-    
-    return sent_tokens12
+    rec_text = ' '.join(clean_tokens) # The whole text without the POS-tags attached to each word
 
-# Demonstration of Sentence Tokenizer Version2
-in_text_words_01 = brown.words('ca06') # Arbitrary choice of a document
-sent_tokens01 = tokenize_text_sent_v2(in_text_words_01)
-sent_tokens01
+    sent_tokens11 = nltk.sent_tokenize(rec_text)
+    
+    return sent_tokens11
 
 
 # Lemmatization
+# Lemmatization is performed solely for educational purposes and is not used in sentence rank calculation.
 
 wnl = WordNetLemmatizer()
 
@@ -211,7 +204,9 @@ def lemmatizer(clean_tokens):
 # This can easily be extended into larger datasets, i.e. texts from other categories of the corpus.
 
 brown_news_allids = brown.fileids(categories = 'news')
-df = pd.DataFrame(columns = ["Tokenized Words", "Tokenized Sentences", "Lemmas"])
+
+# df contains all the outputs of pre-processing step and is useful for pedagocical reasons.
+df = pd.DataFrame(columns = ["Tokenized Words", "Tokenized Sentences", "Lemmas"]) 
 
 count = 0
 
@@ -222,7 +217,7 @@ for fileid in brown_news_allids:
     # For word tokenization and pre-processing to get "clean_tokens3"
     in_text_doc = ' '.join(brown.words(fileids = fileid))
     
-    clean_tokens = tokenize_text()
+    clean_tokens = tokenize_text(brown.raw(fileids = fileid))
     clean_tokens1 = special_ch_punc_removal(clean_tokens)
     clean_tokens2 = case_converter(clean_tokens1)
     clean_tokens3 = stop_word_removal(clean_tokens2)
@@ -328,6 +323,9 @@ def tfidf(sentences):
     return tfidf_arr
 
 
+# The following section is a part in which we try to compare the power of different features in producing consistent summaries
+# So, it could be removed without losing functionality of the algorithm until the section "Generation of Summaries"
+
 # Trying TF-IDF function for the sentences in document 0
 tfidf_arr_0 = tfidf(in_sent_0)
 
@@ -351,8 +349,6 @@ def cos_sim(features):
 
 # Cosine similarity matrix for combined features
 cossim_arr_0_cf = cos_sim(combined_features)
-
-
 
 # Trying the Cosine Similarity function for sentences in document 0 and tfidf feature
 cossim_arr_0_tfidf = cos_sim(tfidf_arr_0)
@@ -411,7 +407,10 @@ for i in range(5):
 print('\n The third summary is as follows: \n', summary3, '\n')
 
 
+
+# Generation of Summaries
 # Iterative method to generate and store all the summaries of documents in the news category of Brown corpus
+
 all_summaries = []
 
 for i in range(len(df)):
@@ -443,7 +442,6 @@ for i in range(len(df)):
     # Append the summary to the list of all summaries
     all_summaries.append(summary_i)
 
-# Print all the summaries
+# Finally, display all the summaries
 for i, summary in enumerate(all_summaries):
     print(f'Summary for document {i}:\n{summary}\n')
-
