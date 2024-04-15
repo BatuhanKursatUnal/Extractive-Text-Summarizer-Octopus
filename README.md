@@ -1,10 +1,10 @@
 https://img.shields.io/badge/code-Python-red?style=flat-square
-image:https://img.shields.io/badge/code-Python-red?style=flat-square[Static Badge]
-
 https://img.shields.io/badge/dependencies-NLTK-blue
 https://img.shields.io/badge/dependencies-scikitlearn-darkblue?style=plastic
 https://img.shields.io/badge/dependencies-pandas-lightblue?style=plastic
 https://img.shields.io/badge/dependencies-networx-white?style=plastic
+
+
 
 This is an automatic extractive text summarization algorithm.
 
