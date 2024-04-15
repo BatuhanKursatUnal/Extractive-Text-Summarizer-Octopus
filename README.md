@@ -1,3 +1,4 @@
+[![Dependencies](https://img.shields.io/badge/Dependencies-NLTK%2C%20scikit--learn%2C%20pandas-blue)](https://pypi.org/)
 https://img.shields.io/badge/code-Python-red?style=flat-square
 https://img.shields.io/badge/dependencies-NLTK-blue
 https://img.shields.io/badge/dependencies-scikitlearn-darkblue?style=plastic
@@ -14,7 +15,7 @@ Extractive document summarization algorithms rank the pre-processed sentences in
 The main algorithm that is followed throughout this project is the TextRank algorithm which is a graph-based summarization algorithm inspired by PageRank algorithm. Sentences are represented as nodes where connections between them are the edges. 
 After pre-processing of the text documents, features are extracted and they are put into a cosine similarity matrix which is then used to produce the graphs and finally rank the sentences.
 
-#Project outline
+##Project outline
 
 The main dependencies are; NLTK, which is used mainly by taking advantage of tokenizers and lemmatizers in pre-processing step, and scikitlearn, which is useful in feature extraction.
 
@@ -23,7 +24,7 @@ Pre-processing step includes; special character and punctuation removal, case co
 After these, feature extraction, whose sub-sections are; N-gram bag of words, word frequency vectorizer, and TF-IDF vectorizer.
 Finally, sentence ranks are calculated using PageRank algorithm and summaries are generated for the News category of Brown corpus.
 
-#Data
+##Data
 
 Brown and Reuters corpora are used via NLTK library. 
 Brown corpus is the main set that the model uses to generate summaries and Reuters corpus is used only for trial purposes.
